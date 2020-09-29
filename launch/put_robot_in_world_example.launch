@@ -1,0 +1,26 @@
+<launch>
+    <!-- Configure position arguments -->
+    <arg name="x" default="0" />
+    <arg name="y" default="0" />
+    <arg name="z" default="0.0" />
+    <arg name="roll" default="0.0"/>
+    <arg name="pitch" default="0.0"/>
+    <arg name="yaw" default="0.0"/>
+
+    <!-- Xacro - build the description -->
+    <param name="robot_description" command="xacro $(find walrus_description)/urdf/walrus.urdf.xacro" />
+
+    <!-- Spawn the URDF into the world -->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model Walrus -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw) -param robot_description" />
+
+    <!-- Launch joint and state publishers -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <node name="robot_state_publisher_walrus" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+        <param name="publish_frequency" type="double" value="5.0" />
+    </node>
+
+    <!-- Launch controller -->
+    <include file="$(find walrus_gazebo)/launch/walrus_control.launch" />
+
+</launch>
