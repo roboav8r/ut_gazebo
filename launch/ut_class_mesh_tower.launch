@@ -24,7 +24,7 @@
     </include>
 
     <!-- Create static transform between mesh and world frames (for terrain type lookup) -->
-    <node pkg="tf" type="static_transform_publisher" name="mesh_broadcaster" args="143 325 24.5 0 0 0 mesh world 100" />
+    <node pkg="tf" type="static_transform_publisher" name="mesh_broadcaster" args="143 325 24.75 0 0 0 mesh world 100" />
 
     <!-- OPTIONAL: Spawn robot in world -->
     <group if="$(arg put_robot_in_world)">

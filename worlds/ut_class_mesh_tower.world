@@ -10,7 +10,7 @@
       <uri>model://sun</uri>
     </include>
     <model name="ut_class_mesh">
-      <pose>-143 -325 -24.5 0 0 0</pose>
+      <pose>-143 -325 -24.75 0 0 0</pose>
       <static>true</static>
       <link name="body">
         <visual name="visual">
