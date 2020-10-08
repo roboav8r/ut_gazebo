@@ -6,7 +6,9 @@ Assumes Gazebo and ROS are already installed.
 ## Installation:
 Create a ut_meshes model folder in Gazebo:
 ```mkdir -p ~/.gazebo/models/ut_meshes```
+
 Copy the three .dae files from UTBox into the ut_meshes folder.
+
 Clone the ut_gazebo repository into your catkin workspace and build:
 ```
 cd ~/catkin_ws/src && git clone https://github.com/roboav8r/ut_gazebo.git
